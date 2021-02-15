@@ -1,0 +1,2 @@
+debansi     ansible_ssh_host=192.168.56.51
+centansi    ansible_ssh_host=192.168.56.52
