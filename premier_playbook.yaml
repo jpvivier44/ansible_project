@@ -19,3 +19,12 @@
       state: present  
       key: "{{ lookup('file', '/home/ansible/.ssh/id_rsa.pub') }}"
 
+  - name: "Déploiement du fichier de regle sudo pour le user deploy"
+    ansible.builtin.copy:
+      dest: /etc/sudoers.d/deploy
+      content: "deploy ALL=(ALL) NOPASSWD:ALL"
+      mode: 0440
+      owner : root
+      group: root
+
+
