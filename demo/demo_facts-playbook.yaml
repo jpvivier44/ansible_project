@@ -1,0 +1,14 @@
+---
+- name: PLAY -Demo facts
+  hosts: linux
+
+  tasks:
+
+  - name: Utilisation d'un fact
+    debug:
+      msg: "serveur sur distri: {{ ansible_distribution }}" 
+
+  - name: Utilisation d'un fact
+    debug:
+      msg: "memoire inferieur à 5 Go: {{ ansible_memfree_mb }} Mo"
+    when: ansible_memfree_mb < 3500

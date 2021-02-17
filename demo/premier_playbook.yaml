@@ -5,6 +5,9 @@
   hosts: all
   become: true
 
+  vars: 
+    deploy_pwd: deploy123
+
 # Déclaration du block task appel des modules ansible
   tasks:
   - name: "Ajout de l'utilisateur de déploiement via ansible"
@@ -12,6 +15,7 @@
       name: deploy
       state: present
       shell: /bin/bash
+      password: "{{ deploy_pwd | password_hash('sha512') }}"
 
   - name: "depose de la cle publique du ansible mgmt chez le user deploy"
     ansible.posix.authorized_key:
