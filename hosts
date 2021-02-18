@@ -1,3 +1,6 @@
+manager ansible_connection=local
+
+
 [linux:children]
 debian
 centos
