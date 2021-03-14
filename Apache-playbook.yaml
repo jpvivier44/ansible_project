@@ -1,0 +1,7 @@
+---
+- name: PLAY -deploiement prerequis
+  hosts: web
+  become: true
+
+  roles:
+   - apache_0.0.1
